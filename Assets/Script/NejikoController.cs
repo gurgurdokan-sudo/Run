@@ -41,10 +41,10 @@ public class NejikoController : MonoBehaviour
             }
         }
         moveDirection.y -= gravity * Time.deltaTime;
-        Vector3 globalDirection = transform.TransformDirection(moveDirection);
-        controller.Move(globalDirection * Time.deltaTime);
+        Vector3 globalDirection = transform.TransformDirection(moveDirection);//方向を加味したVector3を作成
+        controller.Move(globalDirection * Time.deltaTime);//向いてるglobalDirectionに
         if (controller.isGrounded) moveDirection.y = 0;
-        animator.SetBool("run", moveDirection.x > 0.0f);
+        animator.SetBool("run", moveDirection.z > 0.0f);
         Debug.Log("test");
 
     }
